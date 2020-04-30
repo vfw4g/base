@@ -1,0 +1,18 @@
+level = "debug"
+out.name = "stdout"
+[formatter]
+    name = "text"
+    [formatter.options]
+        full_timestamp = true
+#        disable_colors = false
+
+[[hooks]]
+    name = "file"
+    [hooks.options]
+        glob-pattern ="user-web.log.%Y%m%d%H%M"
+        link-name = "user-web.log"
+        max-age= "168h"     # 7*24
+        rotation-time = "24h"
+        clock=""
+        rotation-count=0
+        level= "info"
