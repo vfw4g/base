@@ -8,7 +8,7 @@ import (
 //copy field from source to target.
 //the target must be a point or a struct kind,or it will not be attended to.
 //support the `fieldcopy` tag in target field.
-func StructFieldCopy(src interface{}, target interface{}) {
+func StructFieldCopy(src interface{}, target interface{}) (err error) {
 	if src == nil || target == nil {
 		return
 	}
