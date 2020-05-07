@@ -1,6 +1,7 @@
 package conv
 
 import (
+	"github.com/vfw4g/base/errors"
 	"reflect"
 	"strings"
 )
@@ -10,7 +11,7 @@ import (
 //support the `fieldcopy` tag in target field.
 func StructFieldCopy(src interface{}, target interface{}) (err error) {
 	if src == nil || target == nil {
-		return
+		return errors.New("source or target must not be nil.")
 	}
 	//source
 	var st = reflect.TypeOf(src)
@@ -106,6 +107,7 @@ func StructFieldCopy(src interface{}, target interface{}) (err error) {
 			}
 		}
 	}
+	return
 }
 
 type structRef struct {
